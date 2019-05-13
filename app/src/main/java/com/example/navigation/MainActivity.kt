@@ -53,12 +53,18 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         return true
     }
 
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
-            R.id.action_settings -> true
+            R.id.action_settings -> {
+
+                //Snackbar
+                val sn = Snackbar.make(findViewById(R.id.drawer_layout),"Hello World",Snackbar.LENGTH_LONG)
+                    .setAction("Uuganaa"){}
+                sn.show()
+
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -82,6 +88,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             .replace(R.id.relativelayout, fragment)
             .commit()
     }
+
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
      displayScreen(item.itemId)
